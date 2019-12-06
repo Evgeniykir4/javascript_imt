@@ -31,13 +31,12 @@ while( flag ){
 	for( i = 0; i < 3; i++ ) {
 		if( ! correctInputFlag ) {
 			console.log('Entered symbol is not correct.');
-			console.log('Index = ', i);
 			// break;
 		}
-		console.log("Index ", i);
+
 		tempRes = prompt('Enter' + arr1[i]).trim();
-		console.log(tempRes, 'prompt returned');
-	// Проверка. Является введённый символ числом или нет?
+
+// Проверка. Является введённый символ числом или нет?
 		let len = tempRes.length;
 
 		if(i == 0 || i == 2) {
@@ -60,27 +59,18 @@ while( flag ){
 			}
 			for (j = 0; j < len; j++) {
 				if( typeof +tempRes[j] == 'number' && ! Number.isNaN(+tempRes[j]) ){
-					console.log(+tempRes[j], typeof +tempRes);
+					
 				}else{
 					correctInputFlag = false;
-					console.log("You enter no number. " + tempRes[j], 'index ' + i);
+					
 					alert("Symbol " + '"' + tempRes[j] + '"' + " is not number.");
 					break;
 				}
 			}
 		} else if (i == 1 && tempRes.toLowerCase() in namesOfMonths) {
+
 			tempRes = tempRes.toLowerCase();
-		/*	for (j = 0; j < len; j++) {
-				if( typeof tempRes[j] == 'string' &&  Number.isNaN(+tempRes[j]) ){
-					console.log(tempRes[j], typeof tempRes);
-				}else{
-					correctInputFlag = false;
-					console.log("Your data has symbol number. " + tempRes[j]);
-					alert("You enter no symbol " + '"' + tempRes[j] + '"' + " is not string.");
-					break;
-				}
-			}
-			*/
+	
 		} else {
 			correctInputFlag = false;
 			alert("You are not careful. Enter the data again");
@@ -89,7 +79,7 @@ while( flag ){
 		arr2.push( tempRes );
 	}
 	if( ! correctInputFlag){
-		// back to the beginning of the main cycle (for)
+		// Возвращаемся в начало главного цикла
 		continue;
 	}
 	if(arr2.length < 3) {
@@ -114,7 +104,7 @@ dateToday = dateToday.split(",").map((value, index) => {
 	return +value;
 });
 /////////////////////////////////////////////////
-console.log(arr2, dateToday);
+// console.log(arr2, dateToday);
 
 result = arr2.reduce((accumulator, currentValue, index, ) => {
 	if(index === 0) {
